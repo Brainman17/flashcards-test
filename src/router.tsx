@@ -6,12 +6,16 @@ import {
   createBrowserRouter,
 } from 'react-router-dom'
 
-import { useGetDecksQuery } from './services/base-api'
+import { Decks } from './pages/decks/decks'
 
 const publicRoutes: RouteObject[] = [
   {
     element: <div>hello</div>,
     path: '/',
+  },
+  {
+    element: <Decks />,
+    path: '/decks',
   },
 ]
 
@@ -37,13 +41,5 @@ const router = createBrowserRouter([
 ])
 
 export const Router = () => {
-  const { data, isLoading } = useGetDecksQuery()
-
-  if (isLoading) {
-    return <div>...Loading</div>
-  }
-
-  console.log(data)
-
   return <RouterProvider router={router} />
 }
