@@ -1,26 +1,14 @@
-export interface DecksResponse {
-  items: Deck[]
-  maxCardsCount: number
+import { Deck, Pagination } from '@/services/decks/decks.types'
+
+export type PaginatedEntity<T> = {
+  items: T[]
   pagination: Pagination
 }
-export interface Author {
-  id: string
-  name: string
+
+export type DecksResponse = PaginatedEntity<Deck> & {
+  maxCardsCount: number
 }
-export interface Deck {
-  author: Author
-  cardsCount: number
-  cover: null | string
-  created: string
-  id: string
-  isPrivate: boolean
+
+export type CreateTypeArgs = {
   name: string
-  updated: string
-  userId: string
-}
-export interface Pagination {
-  currentPage: number
-  itemsPerPage: number
-  totalItems: number
-  totalPages: number
 }

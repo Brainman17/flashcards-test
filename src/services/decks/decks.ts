@@ -1,11 +1,12 @@
-import { DecksResponse } from '@/services/types'
+import { Deck } from '@/services/decks/decks.types'
+import { CreateTypeArgs, DecksResponse } from '@/services/types'
 
 import { baseApi } from '../../services/base-api'
 
 const decksApi = baseApi.injectEndpoints({
   endpoints: builder => {
     return {
-      createDecks: builder.mutation<any, any>({
+      createDecks: builder.mutation<Deck, CreateTypeArgs>({
         invalidatesTags: ['Decks'],
         query: ({ name }) => {
           return {
