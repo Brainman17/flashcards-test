@@ -6,10 +6,16 @@ import {
   createBrowserRouter,
 } from 'react-router-dom'
 
+import { Decks } from './pages/decks/decks'
+
 const publicRoutes: RouteObject[] = [
   {
     element: <div>hello</div>,
     path: '/',
+  },
+  {
+    element: <Decks />,
+    path: '/decks',
   },
 ]
 
